@@ -1,8 +1,14 @@
 // This would typically be a server-side API route
 // For now, we'll create a client-side implementation
 
-const GEMINI_API_KEY = 'AIzaSyANeai22Sik0qrDvytK43NNzNFYZCSALs0';
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+if (!GEMINI_API_KEY) {
+  // Surface a clear message during development without leaking the key
+  // Do not throw here to allow the UI to decide how to handle fallback
+  console.warn('[Gemini] Missing VITE_GEMINI_API_KEY. Using fallback responses.');
+}
 
 // Oliver's portfolio information for context
 const PORTFOLIO_CONTEXT = `
@@ -50,6 +56,11 @@ Always respond in a friendly, professional manner. If asked about something not 
 
 export const sendMessageToGemini = async (userMessage) => {
   try {
+    if (!GEMINI_API_KEY) {
+      // Fast exit to let caller use fallback when key is not configured
+      throw new Error('MISSING_GEMINI_API_KEY');
+    }
+
     const response = await fetch(GEMINI_API_URL + `?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: {
