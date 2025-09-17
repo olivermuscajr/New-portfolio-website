@@ -33,6 +33,23 @@ const About = () => {
     },
   };
 
+  const techStacks = [
+    { label: 'React', className: 'devicon-react-original colored' },
+    { label: 'HTML5', className: 'devicon-html5-plain colored' },
+    { label: 'JavaScript', className: 'devicon-javascript-plain colored' },
+    { label: 'CSS3', className: 'devicon-css3-plain colored' },
+    { label: 'TailwindCSS', className: 'devicon-tailwindcss-plain colored' },
+    { label: 'Bootstrap', className: 'devicon-bootstrap-plain colored' },
+    { label: 'SQL', className: 'devicon-mysql-plain colored' },
+    { label: 'Android Studio', className: 'devicon-androidstudio-plain colored' },
+    { label: 'Firebase', className: 'devicon-firebase-plain colored' },
+    { label: 'PHP', className: 'devicon-php-plain colored' },
+    { label: 'Java', className: 'devicon-java-plain colored' },
+    { label: 'npm', className: 'devicon-npm-original-wordmark colored' },
+    { label: 'GitHub', className: 'devicon-github-original' },
+    { label: 'Node.js', className: 'devicon-nodejs-plain colored' },
+  ];
+
   return (
     <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,6 +147,18 @@ const About = () => {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* Tech Stack Icons Only */}
+              <div className="pt-4">
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 text-center lg:text-left">Tech Stack</h4>
+                <div className="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-8 gap-4 justify-items-center">
+                  {techStacks.map((tech) => (
+                    <div key={tech.label} className="group" aria-label={tech.label} title={tech.label}>
+                      <i className={`${tech.className} text-4xl transition-transform duration-200 group-hover:scale-110`}></i>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>

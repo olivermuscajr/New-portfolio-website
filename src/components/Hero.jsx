@@ -80,13 +80,15 @@ const Hero = () => {
               >
                 View My Work
               </motion.button>
-              <motion.button
+              <motion.a
+                href="/OliverMusca_CV.pdf"
+                download
                 className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Download CV
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* Social Links */}
@@ -97,7 +99,7 @@ const Hero = () => {
               {[
                 { icon: Github, href: 'https://github.com/olivermuscajr', label: 'GitHub' },
                 { icon: Linkedin, href: 'https://www.linkedin.com/in/oliver-musca-84171b219', label: 'LinkedIn' },
-                { icon: Mail, href: '#', label: 'Email' },
+                /* { icon: Mail, href: '#', label: 'Email' }, */
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

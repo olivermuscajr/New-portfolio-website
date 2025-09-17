@@ -62,7 +62,7 @@ const Footer = () => {
             {/* Brand Section */}
             <motion.div variants={itemVariants} className="lg:col-span-2">
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                John Doe
+                Oliver Musca Jr.
               </h3>
               <p className="text-gray-300 mb-6 max-w-md">
                 A passionate developer and designer creating beautiful, functional,
@@ -105,9 +105,9 @@ const Footer = () => {
             <motion.div variants={itemVariants}>
               <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
               <div className="space-y-2 text-gray-300">
-                <p>john.doe@example.com</p>
-                <p>+1 (555) 123-4567</p>
-                <p>San Francisco, CA</p>
+                <p>olivermuscajr17@gmail.com</p>
+                <p>+(63) 999 431 8519</p>
+                <p>Sampaloc, Manila, Philippines</p>
               </div>
             </motion.div>
           </div>
@@ -124,7 +124,7 @@ const Footer = () => {
             className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
           >
             <div className="flex items-center space-x-2 text-gray-300">
-              <span>© {currentYear} John Doe. Made with</span>
+              <span>© {currentYear} Oliver Musca Jr. Made with</span>
               <motion.span
                 className="text-red-500"
                 animate={{ scale: [1, 1.2, 1] }}
