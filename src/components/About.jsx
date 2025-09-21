@@ -34,10 +34,10 @@ const About = () => {
   };
 
   const techStacks = [
-    { label: 'React', className: 'devicon-react-original colored' },
     { label: 'HTML5', className: 'devicon-html5-plain colored' },
     { label: 'JavaScript', className: 'devicon-javascript-plain colored' },
     { label: 'CSS3', className: 'devicon-css3-plain colored' },
+    { label: 'React', className: 'devicon-react-original colored' },
     { label: 'TailwindCSS', className: 'devicon-tailwindcss-plain colored' },
     { label: 'Bootstrap', className: 'devicon-bootstrap-plain colored' },
     { label: 'SQL', className: 'devicon-mysql-plain colored' },
@@ -88,7 +88,7 @@ const About = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-6">
+              {/* <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
                   <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">50+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-300">Projects Completed</div>
@@ -98,7 +98,7 @@ const About = () => {
                   <div className="text-sm text-gray-600 dark:text-gray-300">Years Experience</div>
                 </div>
               </div>
-
+ */}
               {/* Download CV Button */}
               <motion.button
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -115,7 +115,7 @@ const About = () => {
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white text-center lg:text-left">
                 Skills & Technologies
               </h3>
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 {skills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -147,7 +147,7 @@ const About = () => {
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </div> */}
 
               {/* Tech Stack Icons Only */}
               <div className="pt-4">

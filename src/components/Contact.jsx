@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState  } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Github, Linkedin, Facebook } from 'lucide-react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    user_name: '',
+    user_email: '',
     message: '',
   });
 
@@ -20,35 +23,51 @@ const Contact = () => {
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+
+    
+        e.preventDefault();
+    
+        emailjs
+          .sendForm('service_04v1qcs', 'template_0tq7myo', form.current, {
+            publicKey: 'QW31g68cVVJ7UCwos',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.doe@example.com',
-      href: 'mailto:john.doe@example.com',
+      value: 'olivermuscajr17@gmail.com',
+      href: 'mailto:olivermuscajr17@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
+      value: '+63 (999) 431-8519',
       href: 'tel:+15551234567',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'San Andres, Romblon',
       href: '#',
     },
   ];
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/olivermuscajr', label: 'GitHub' },
+    { icon: Linkedin, href: 'www.linkedin.com/in/oliver-musca-84171b219', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/oliververgaramuscajr/', label: 'Facebook' },
   ];
 
   const containerVariants = {
@@ -103,18 +122,18 @@ const Contact = () => {
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                   Send me a message
                 </h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
-                      htmlFor="name"
+                      htmlFor="user_name"
                       className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                     >
                       Name
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
+                      id="user_name"
+                      name="user_name"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -125,15 +144,15 @@ const Contact = () => {
 
                   <div>
                     <label
-                      htmlFor="email"
+                      htmlFor="user_email"
                       className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                     >
                       Email
                     </label>
                     <input
                       type="email"
-                      id="email"
-                      name="email"
+                      id="user_email"
+                      name="user_email"
                       value={formData.email}
                       onChange={handleChange}
                       required

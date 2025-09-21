@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import MealKit_image from '../assets/MealKit_image.jpg';
+import Weather_image from '../assets/Weather-app-screenshot.png';
 
 const Projects = () => {
   const projects = [
@@ -12,26 +14,29 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
+      isLiveURL: true,
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
-      technologies: ['Vue.js', 'Firebase', 'TailwindCSS'],
+      title: 'MealKit: A Meal Planner Application with Admin Panel',
+      description: 'A capstone project for my college degree. It is a meal planner application that allows users to plan their meals for the week.',
+      image: MealKit_image,
+      technologies: ['Android Studio', 'Kotlin', 'Firebase', 'JavaScript'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/olivermuscajr/Recipe-Meal-Planner-Android-Application.git',
       featured: false,
+      isLiveURL: false,
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop',
-      technologies: ['React', 'OpenWeather API', 'Chart.js'],
+      title: 'Weather App Dashboard',
+      description: 'A simple yet responsive weather dashboard with location-based forecasts, and weather analytics.',
+      image: Weather_image,
+      technologies: ['React', 'Weather API', 'CSS', 'Express JS'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/olivermuscajr/weather-app.git',
       featured: false,
+      isLiveURL: false,
     },
     {
       id: 4,
@@ -42,6 +47,7 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
+      isLiveURL: false,
     },
     {
       id: 5,
@@ -52,6 +58,7 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       featured: false,
+      isLiveURL: false,
     },
     {
       id: 6,
@@ -62,6 +69,7 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       featured: false,
+      isLiveURL: false,
     },
   ];
 
@@ -185,6 +193,7 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
+                  {project.isLiveURL && (
                   <div className="flex space-x-3">
                     <motion.a
                       href={project.liveUrl}
@@ -202,9 +211,10 @@ const Projects = () => {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </motion.a>
-                  </div>
+                        Code
+                      </motion.a>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

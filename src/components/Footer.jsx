@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,9 +12,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' },
+    { icon: Github, href: 'https://github.com/olivermuscajr', label: 'GitHub' },
+    { icon: Linkedin, href: 'www.linkedin.com/in/oliver-musca-84171b219', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/oliververgaramuscajr/', label: 'Facebook' },
   ];
 
   const scrollToSection = (href) => {
