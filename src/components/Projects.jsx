@@ -12,10 +12,10 @@ const Projects = () => {
     {
       id: 1,
       title: 'MealKit: A Meal Planner Application with Admin Panel',
-      description: 'A capstone project for my college degree. It is a meal planner application that allows users to plan their meals for the week.',
+      description: 'A capstone project for my college degree. It is a meal planner application that allows users to plan their meals for the week. It is an app but not web hosted so check the figma design only',
       image: MealKit_image,
-      technologies: ['Android Studio', 'Kotlin', 'Firebase', 'JavaScript', 'JSON'],
-      liveUrl: '#',
+      technologies: ['Android Studio', 'Kotlin', 'Firebase', 'JavaScript', 'JSON',],
+      liveUrl: 'https://www.figma.com/proto/k7Al8T2B1dtZ4V1pHuPLO3/Budgetary-Meal-Planner-App?page-id=0%3A1&node-id=397-94&viewport=1034%2C195%2C0.34&t=x8ZmoaXcjJUh4RNp-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=45%3A30',
       githubUrl: 'https://github.com/olivermuscajr/Recipe-Meal-Planner-Android-Application.git',
       featured: true,
       isLiveURL: false,
