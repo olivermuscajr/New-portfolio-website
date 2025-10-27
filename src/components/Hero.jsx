@@ -1,12 +1,17 @@
-import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import profileImage from '../assets/oliver-profile.png';
+import { motion } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
+import profileImage from "../assets/oliver-front-photo.png";
+import profileImageBack from "../assets/oliver-back-photo.JPG";
+import { useState } from "react";
+import Typewriter from "./Typewriter";
 
 const Hero = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   const scrollToProjects = () => {
-    const element = document.querySelector('#projects');
+    const element = document.querySelector("#projects");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -28,17 +33,20 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: 'easeOut',
+        ease: "easeInOut",
       },
     },
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] dark:opacity-20" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -47,9 +55,12 @@ const Hero = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
           {/* Left: Main Content */}
-          <motion.div variants={itemVariants} className="space-y-6 text-center lg:text-left">
+          <motion.div
+            variants={itemVariants}
+            className="space-y-6 text-center lg:text-left"
+          >
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white">
-              Hi, I'm{' '}
+              Hi, I'm{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Oliver Musca Jr.
               </span>
@@ -58,13 +69,14 @@ const Hero = () => {
               className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto lg:mx-0"
               variants={itemVariants}
             >
-              Aspiring Junior Web Developer
+              <Typewriter />
             </motion.p>
             <motion.p
               className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0"
               variants={itemVariants}
             >
-              “I create beautiful, functional, and user-centered web experiences that deliver impact.”
+              “I create beautiful, functional, and user-centered web experiences
+              that deliver impact.”
             </motion.p>
 
             {/* CTA Buttons */}
@@ -97,8 +109,16 @@ const Hero = () => {
               className="flex justify-center lg:justify-start space-x-6"
             >
               {[
-                { icon: Github, href: 'https://github.com/olivermuscajr', label: 'GitHub' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/oliver-musca-84171b219', label: 'LinkedIn' },
+                {
+                  icon: Github,
+                  href: "https://github.com/olivermuscajr",
+                  label: "GitHub",
+                },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/oliver-musca-84171b219",
+                  label: "LinkedIn",
+                },
                 /* { icon: Mail, href: '#', label: 'Email' }, */
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
@@ -118,21 +138,44 @@ const Hero = () => {
           </motion.div>
 
           {/* Right: Profile Image */}
-          <motion.div variants={itemVariants} className="flex justify-center lg:justify-end">
-            <div className="relative">
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative w-48 h-64 sm:w-64 sm:h-80 lg:w-80 lg:h-[26rem] cursor-pointer perspective relative group inline-block">
               <motion.div
-                className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d"
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                onClick={() => setIsFlipped(!isFlipped)}
               >
-                <div className="w-full h-full rounded-full overflow-hidden">
+                {/* Front Side */}
+                <div
+                  className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl"
+                  style={{ transform: "rotateY(180deg)" }}
+                >
                   <img
                     src={profileImage}
-                    alt="Oliver Profile"
-                    className="w-full h-full object-cover rounded-full"
+                    alt="Oliver Profile Front"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Back Side */}
+                <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl transform rotateY-180">
+                  <img
+                    src={profileImageBack}
+                    alt="Oliver Profile Back"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
+              <span
+                className="bg-dark-500 absolute bottom-full mb-2 left-1/2 -translate-x-1/2
+               opacity-0 group-hover:opacity-100 transition-opacity duration-300
+               bg-gray-800 text-white text-sm rounded px-2 py-1 whitespace-nowrap"
+              >
+                Click to Flip
+              </span>
             </div>
           </motion.div>
         </motion.div>

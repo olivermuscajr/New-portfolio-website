@@ -40,7 +40,7 @@ const Contact = () => {
             },
           );
       // Reset form
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ user_name: '', user_email: '', message: '' });
   };
 
   const contactInfo = [
@@ -134,7 +134,7 @@ const Contact = () => {
                       type="text"
                       id="user_name"
                       name="user_name"
-                      value={formData.name}
+                      value={formData.user_name}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
@@ -153,7 +153,7 @@ const Contact = () => {
                       type="email"
                       id="user_email"
                       name="user_email"
-                      value={formData.email}
+                      value={formData.user_email}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"

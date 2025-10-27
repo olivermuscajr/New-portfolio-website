@@ -2,75 +2,82 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import MealKit_image from '../assets/MealKit_image.jpg';
 import Weather_image from '../assets/Weather-app-screenshot.png';
+import Record_Management_System_image from '../assets/sal_rms_ss.png'
+import Car_Rental_System_image from '../assets/car-rental-img.png';
+import Inventory_Management_System_image from '../assets/Inventory-image.png';
+import Ecommerce_Website_image from '../assets/e-commerce.png';
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: true,
-      isLiveURL: true,
-    },
-    {
-      id: 2,
       title: 'MealKit: A Meal Planner Application with Admin Panel',
       description: 'A capstone project for my college degree. It is a meal planner application that allows users to plan their meals for the week.',
       image: MealKit_image,
-      technologies: ['Android Studio', 'Kotlin', 'Firebase', 'JavaScript'],
+      technologies: ['Android Studio', 'Kotlin', 'Firebase', 'JavaScript', 'JSON'],
       liveUrl: '#',
       githubUrl: 'https://github.com/olivermuscajr/Recipe-Meal-Planner-Android-Application.git',
-      featured: false,
-      isLiveURL: false,
-    },
-    {
-      id: 3,
-      title: 'Weather App Dashboard',
-      description: 'A simple yet responsive weather dashboard with location-based forecasts, and weather analytics.',
-      image: Weather_image,
-      technologies: ['React', 'Weather API', 'CSS', 'Express JS'],
-      liveUrl: '#',
-      githubUrl: 'https://github.com/olivermuscajr/weather-app.git',
-      featured: false,
-      isLiveURL: false,
-    },
-    {
-      id: 4,
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website with smooth animations, dark mode, and optimized performance.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop',
-      technologies: ['React', 'TailwindCSS', 'Framer Motion'],
-      liveUrl: '#',
-      githubUrl: '#',
       featured: true,
       isLiveURL: false,
     },
     {
+      id: 2,
+      title: 'Inventory Management System (IvenTrack)',
+      description: 'An Inventory Management System with frontend only using React and TailwindCSS.',
+      image: Inventory_Management_System_image,
+      technologies: ['React', 'Tailwind', 'DaisyUI'],
+      liveUrl: 'https://inventory-management-system-fronten-beta.vercel.app//',
+      githubUrl: 'https://github.com/olivermuscajr/Inventory-management-system-frontend.git',
+      featured: false,
+      isLiveURL: true,
+    },
+    {
+      id: 3,
+      title: 'Car Rental System (Frontend)',
+      description: 'A simple car rental system with frontend only using React and TailwindCSS.',
+      image: Car_Rental_System_image,
+      technologies: ['React', 'Tailwind',],
+      liveUrl: 'https://car-rental-frontend-seven-topaz.vercel.app/',
+      githubUrl: 'https://github.com/olivermuscajr/car-rental-frontend.git',
+      featured: false,
+      isLiveURL: true,
+    },
+    
+    {
+      id: 4,
+      title: 'Weather App Dashboard',
+      description: 'A simple yet responsive weather dashboard with location-based forecasts, and weather analytics.',
+      image: Weather_image,
+      technologies: ['React', 'Weather API', 'CSS', 'Express JS', 'Tailwind', 'Node.js'],
+      liveUrl: 'https://weather-app-umber-beta-81.vercel.app/',
+      githubUrl: 'https://github.com/olivermuscajr/weather-app.git',
+      featured: false,
+      isLiveURL: true,
+    },
+    {
       id: 5,
-      title: 'Social Media Dashboard',
-      description: 'A comprehensive social media management dashboard with analytics, scheduling, and content management features.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
-      technologies: ['Next.js', 'TypeScript', 'Prisma'],
+      title: 'Record Management System',
+      description: 'A record management system for benefeciaries in Calatrava, Romblon with simple data analytics with Pie Chart using Java.',
+      image: Record_Management_System_image,
+      technologies: ['Java', 'SQL', 'Xampp', 'JFreeChart'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/olivermuscajr/Record-Management-System---Share-A-Love.git',
       featured: false,
       isLiveURL: false,
     },
     {
       id: 6,
-      title: 'Mobile Banking App',
-      description: 'A secure mobile banking application with biometric authentication, transaction history, and money transfer features.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=300&fit=crop',
-      technologies: ['React Native', 'Node.js', 'PostgreSQL'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: false,
-      isLiveURL: false,
-    },
+      title: 'Ecommerce Website',
+      description: 'A responsive ecommerce website with frontend only using React and TailwindCSS.',
+      image: Ecommerce_Website_image,
+      technologies: ['React', 'Tailwind', 'Lucide React', 'React Router'],
+      liveUrl: 'https://e-commerce-website-shoplift.vercel.app/',
+      githubUrl: 'https://github.com/olivermuscajr/e-commerce-website-shoplift.git',
+      featured: true,
+      isLiveURL: true,
+    }
+    
+    
   ];
 
   const containerVariants = {
@@ -225,13 +232,13 @@ const Projects = () => {
             variants={itemVariants}
             className="text-center"
           >
-            <motion.button
+            {/* <motion.button
               className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               View All Projects
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </motion.div>
       </div>

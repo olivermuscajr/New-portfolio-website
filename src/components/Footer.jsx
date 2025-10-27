@@ -1,26 +1,34 @@
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, Facebook } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Heart, Facebook } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/olivermuscajr', label: 'GitHub' },
-    { icon: Linkedin, href: 'www.linkedin.com/in/oliver-musca-84171b219', label: 'LinkedIn' },
-    { icon: Facebook, href: 'https://www.facebook.com/oliververgaramuscajr/', label: 'Facebook' },
+    { icon: Github, href: "https://github.com/olivermuscajr", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "www.linkedin.com/in/oliver-musca-84171b219",
+      label: "LinkedIn",
+    },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/oliververgaramuscajr/",
+      label: "Facebook",
+    },
   ];
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -42,7 +50,7 @@ const Footer = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: "easeOut",
       },
     },
   };
@@ -65,8 +73,9 @@ const Footer = () => {
                 Oliver Musca Jr.
               </h3>
               <p className="text-gray-300 mb-6 max-w-md">
-                A passionate developer and designer creating beautiful, functional,
-                and user-centered digital experiences that make a difference.
+                A passionate developer and designer creating beautiful,
+                functional, and user-centered digital experiences that make a
+                difference.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -124,15 +133,7 @@ const Footer = () => {
             className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
           >
             <div className="flex items-center space-x-2 text-gray-300">
-              <span>© {currentYear} Oliver Musca Jr. Made with</span>
-              <motion.span
-                className="text-red-500"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
-                <Heart className="w-4 h-4 fill-current" />
-              </motion.span>
-              <span>and lots of coffee.</span>
+              <span>© {currentYear} Oliver Musca Jr.</span>
             </div>
 
             <div className="flex items-center space-x-6 text-sm text-gray-400">
