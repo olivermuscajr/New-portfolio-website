@@ -59,7 +59,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Andres, Romblon',
+      value: 'Sampaloc, Manila',
       href: '#',
     },
   ];
